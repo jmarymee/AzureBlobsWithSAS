@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="jumbotron">
+    <h1>Azure Storage Examples</h1>
+    <p class="lead">This is a sample web app that can upload blobs to storage containers as well as download blobs</p>
+    @*<p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>*@
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Generating Container SAS URIs</h2>
+        <p>
+            There are several ways to generate single-use SAS tokens along with the URL for upload and download. This example generates a container SAS that allows for blob uploads.
+            You can perform a blob upload using the link below.
+        </p>
+        @*<p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>*@
+        @Html.ActionLink("Generate a Container Upload SAS Link", "GenContainerSAS", "BlobUploader")
+        <br />
+        @Html.ActionLink("Upload Blob to Container", "UploadBlobToContainer", "BlobUploader")
+    </div>
+    <div class="col-md-4">
+        <h2>Uploading Blobs with timed SAS keys</h2>
+        <p>You can use this link to upload a blob to a container provided you already generated an upload SAS</p>
+        @*<p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>*@
+        @Html.ActionLink("Upload Blob to Container", "UploadBlobToContainer", "BlobUploader")
+    </div>
+    <div class="col-md-4">
+        <h2>Downloading Blobs with timed SAS Keys</h2>
+        <p>This lets you generate a download link as a life-limited SAS. You can cut and paste the generated link into any browser to download. Read rights only!</p>
+        @*<p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>*@
+        @Html.ActionLink("Download Blob using URL SAS", "SASBlobDownload", "BlobUploader")
+    </div>
+
+</div>
+
