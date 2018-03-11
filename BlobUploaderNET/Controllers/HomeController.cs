@@ -24,6 +24,20 @@ namespace BlobUploaderNET.Controllers
             return View();
         }
 
+        [HttpGet]
+        public ActionResult WipeConfig()
+        {
+            string path = AppDomain.CurrentDomain.BaseDirectory;
+            if (System.IO.File.Exists($"{path}/credentials.json"))
+            {
+                System.IO.File.Delete($"{path}/credentials.json");
+                HttpContext.Application["StorageConnString"] = "";
+                ViewBag.Message = "Configuration Successfully Wiped";
+            }
+
+            return View();
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
